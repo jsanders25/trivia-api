@@ -4,13 +4,13 @@ import '../styles/global.css';
 
 // data source
 // replace temporary JSON placeholder API
-const source = 'https://v2.jokeapi.dev/joke/any?amount=10';
+const source = 'https://api.thecatapi.com/v1/images/search?limit=10';
 // fetch the data
 const res = await fetch(source); 
 // store retreived data
 const data = await res.json();
 
-const siteName = "JOKES!";
+const siteName = "Cat Pics!";
 ---
 
 <html lang="en">
@@ -37,9 +37,10 @@ const siteName = "JOKES!";
 		  
 				<!-- Your API Data -->
 				{
-					data.jokes.map( item => (
-						<blockquote>{item.setup}</blockquote>
-						<em>{item.delivery}</em>
+					data.map( item => (
+						
+						<img src={item.url} alt="cat" />
+						
 					))
 				}
 		  
